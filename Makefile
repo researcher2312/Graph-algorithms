@@ -1,11 +1,12 @@
 CXX = g++
 CPPFLAGS = -Wall -pedantic -std=c++14 -I ./inc
-OBJECTS = src/main.o
+OBJECTS = src/main.o src/list.o
 
 graf: $(OBJECTS)
 	g++ $(CPPFLAGS) $(OBJECTS) -o graf
 
-main.o: 
+main.o:
+list.o: list.h
 
 .PHONY: clean
 clean:
