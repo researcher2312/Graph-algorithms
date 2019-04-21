@@ -2,13 +2,12 @@
 
 class GraphArray{
 public:
-	GraphArray();
-	AddEdge(int vertice1, int vertice2, int weight);
+	GraphArray(int size);
+	void AddEdge(int vertice1, int vertice2, int weight);
 
 private:
-	int* array;
-}
-
+	int** array_;
+};
 
 #define GRAPH_H
 #endif
