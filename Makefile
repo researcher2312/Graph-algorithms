@@ -1,7 +1,7 @@
 CXX = g++
 
 CPPFLAGS = -Wall -pedantic -std=c++17 -I ./inc
-OBJECTS = main.o list.o
+OBJECTS = main.o list.o graph.o
 
 
 graf: $(OBJECTS)
@@ -10,6 +10,7 @@ graf: $(OBJECTS)
 
 main.o: inc/list.h
 list.o: inc/list.h
+graph.o: inc/graph.h
 
 
 .PHONY: clean
