@@ -48,3 +48,7 @@ bool GraphList::AddEdge(int vertice1, int vertice2, int weight){
 	}
 	return 0;
 }
+
+bool GraphList::IsConnected(int vertice1, int vertice2){
+	return list_[vertice1].contains(vertice2);
+}
