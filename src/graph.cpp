@@ -35,3 +35,16 @@ bool GraphArray::IsConnected (int vertice1, int vertice2) {
 	else
 		return 0;
 }
+
+GraphList::GraphList(int size): size_(size){
+	list_ = new List<int>[size];
+}
+
+bool GraphList::AddEdge(int vertice1, int vertice2, int weight){
+	if (vertice1 < size_ && vertice2 < size_) {
+		list_[vertice1].push_back(vertice2);
+		list_[vertice2].push_back(vertice1);
+		return 1;
+	}
+	return 0;
+}
