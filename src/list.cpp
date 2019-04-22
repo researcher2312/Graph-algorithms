@@ -38,4 +38,15 @@ void List<T>::write() const {
 	cout << '\n';
 }
 
+template <typename T>
+bool List<T>::contains(T searched_item){
+	ListItem<T>* searched = head_;
+	while (searched != nullptr){
+		if (searched->item == searched_item)
+			return 1;
+		searched = searched->next;
+	}
+	return 0;
+}
+
 template class List<int>;
