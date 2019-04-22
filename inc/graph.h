@@ -4,8 +4,9 @@
 class GraphArray{
 public:
 	GraphArray(int size);
-	void AddEdge(int vertice1, int vertice2, int weight);
+	bool AddEdge(int vertice1, int vertice2, int weight);
 	void Write() const;
+	bool IsConnected(int vertice1, int vertice2);
 
 private:
 	int size_;
