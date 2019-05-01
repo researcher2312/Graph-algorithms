@@ -16,6 +16,7 @@ public:
 	void write() const;
 	
 	bool empty() const {return head_ == nullptr;}
+	bool contains(T);
 	int size() const {return size_;}
 
 private:
