@@ -8,7 +8,7 @@ class GraphEdge;
 
 class GraphEdge{
 public:
-	GraphEdge(int weight, GraphVertice* v1, GraphVertice* v2);
+	GraphEdge(GraphVertice* v1, GraphVertice* v2, int weight);
 private:
 	int weight_;
 	GraphVertice* incident_vertices [2];
@@ -17,6 +17,8 @@ private:
 class GraphVertice{
 public:
 	GraphVertice(int number): number_(number){};
+	void Connect(GraphVertice*, GraphEdge*);
+	int GetNumber() const {return number_;}
 private:
 	int number_;
 	List<GraphEdge*> incident_edges;

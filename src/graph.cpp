@@ -41,10 +41,12 @@ GraphList::GraphList(int size): size_(size){
 	}
 }
 
-void GraphList::AddEdge(int vertice1, int vertice2, int weight){
-	if (vertice1 < size_ && vertice2 < size_) {
-		
-			
+void GraphList::AddEdge(GraphVertice* vertice1, GraphVertice* vertice2, int weight){
+	if (vertice1->GetNumber() < size_ && vertice2->GetNumber() < size_) {
+		GraphEdge* new_edge = new GraphEdge(vertice1, vertice2, weight);
+		graph_edge_list_.push_back(new_edge);
+		vertice1->Connect(vertice2, new_edge);
+		vertice2->Connect(vertice1, new_edge);			
 	}
 }
 
