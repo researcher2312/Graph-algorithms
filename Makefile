@@ -9,9 +9,9 @@ graf: $(OBJECTS)
 
 
 main.o: inc/list.h inc/graph.h
-list.o: inc/list.h
-graph.o: inc/graph.h inc/graph_elements.h
-graph_elements.o: inc/graph_elements.h
+list.o: inc/list.h inc/graph_elements.h
+graph.o: inc/graph.h inc/graph_elements.h inc/list.h
+graph_elements.o: inc/graph_elements.h inc/list.h
 
 
 .PHONY: clean
