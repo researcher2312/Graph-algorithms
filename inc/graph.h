@@ -13,7 +13,7 @@ public:
 
 private:
 	int size_;
-	GraphVertice* graph_vertice_list_;
+	List<GraphVertice*> graph_vertice_list_;
 	List<GraphEdge*> graph_edge_list_;
 };
 

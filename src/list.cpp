@@ -1,5 +1,7 @@
 #include "list.h"
 
+#include "graph_elements.h"
+
 #include <iostream>
 
 using namespace std;
@@ -50,3 +52,5 @@ bool List<T>::contains(T searched_item){
 }
 
 template class List<int>;
+template class List<GraphVertice*>;
+template class List<GraphEdge*>;
