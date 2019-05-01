@@ -10,3 +10,10 @@ void GraphVertice::Connect(GraphVertice* new_vertice, GraphEdge* new_edge){
 	incident_vertices.push_back(new_vertice);
 	incident_edges.push_back(new_edge);
 }
+
+int GraphVertice::IsConnected(GraphVertice* other_vertice){
+	if (incident_vertices.contains(other_vertice)){
+
+	}
+	return 63;
+}

@@ -29,7 +29,7 @@ void GraphArray::Write() const{
 	}
 }
 
-bool GraphArray::IsConnected (int vertice1, int vertice2) const{
+int GraphArray::IsConnected (int vertice1, int vertice2) const{
 	return array_[vertice1][vertice2] > 0;		
 }
 
@@ -50,6 +50,8 @@ void GraphList::AddEdge(GraphVertice* vertice1, GraphVertice* vertice2, int weig
 	}
 }
 
-bool GraphList::IsConnected(int vertice1, int vertice2) const{
-	return true; 
+int GraphList::IsConnected(GraphVertice* vertice1, GraphVertice* vertice2) const{
+	if(vertice1->IsConnected(vertice2)){
+		
+	}
 }

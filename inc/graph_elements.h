@@ -19,6 +19,7 @@ public:
 	GraphVertice(int number): number_(number){};
 	void Connect(GraphVertice*, GraphEdge*);
 	int GetNumber() const {return number_;}
+	int IsConnected(GraphVertice* other_vertice);
 private:
 	int number_;
 	List<GraphEdge*> incident_edges;

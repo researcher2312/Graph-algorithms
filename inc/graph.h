@@ -9,7 +9,7 @@ public:
 	GraphList (int size);
 	void AddEdge(GraphVertice* vertice1, GraphVertice* vertice2, int weight);
 	void Write() const;
-	bool IsConnected(int vertice1, int vertice2) const;
+	int IsConnected(GraphVertice* vertice1, GraphVertice* vertice2) const;
 
 private:
 	int size_;
@@ -22,7 +22,7 @@ public:
 	GraphArray(int size);
 	bool AddEdge(int vertice1, int vertice2, int weight);
 	void Write() const;
-	bool IsConnected(int vertice1, int vertice2) const;
+	int IsConnected(int vertice1, int vertice2) const;
 
 private:
 	int size_;
