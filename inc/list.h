@@ -5,6 +5,11 @@ template <typename T>
 struct ListItem {
 	T item;
 	ListItem* next;
+	ListItem operator ++(int){
+		item = next->item;
+		next = next->next;
+		return *this;
+	}
 };
 
 template <typename T>
