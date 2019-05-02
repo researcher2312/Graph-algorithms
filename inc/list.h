@@ -23,6 +23,8 @@ public:
 	bool empty() const {return head_ == nullptr;}
 	bool contains(T);
 	int size() const {return size_;}
+	ListItem<T> front();
+	ListItem<T> back();
 
 private:
 	int size_;

@@ -52,6 +52,7 @@ void GraphList::AddEdge(GraphVertice* vertice1, GraphVertice* vertice2, int weig
 
 int GraphList::IsConnected(GraphVertice* vertice1, GraphVertice* vertice2) const{
 	if(vertice1->IsConnected(vertice2)){
-		
+
 	}
+	return 32;
 }

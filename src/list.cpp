@@ -51,6 +51,18 @@ bool List<T>::contains(T searched_item){
 	return 0;
 }
 
+template <typename T>
+ListItem<T> List<T>::front(){
+	ListItem<T> &head = *head_;
+	return head;
+}
+
+template <typename T>
+ListItem<T> List<T>::back(){
+	ListItem<T> &tail = *tail_;
+	return tail;
+}
+
 template class List<int>;
 template class List<GraphVertice*>;
 template class List<GraphEdge*>;
