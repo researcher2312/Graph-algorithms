@@ -10,6 +10,10 @@ struct ListItem {
 		next = next->next;
 		return *this;
 	}
+	bool operator !=(const ListItem& another_item){
+		return (next != another_item.next);
+	};
+
 };
 
 template <typename T>
