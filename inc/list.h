@@ -34,6 +34,7 @@ private:
 	int size_;
 	ListItem<T>* head_;
 	ListItem<T>* tail_;
+	ListItem<T>* end_;
 };
 
 #endif

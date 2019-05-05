@@ -8,15 +8,18 @@ using namespace std;
 
 template <typename T>
 List<T>::List() {
+	ListItem<T>* q = new ListItem<T>;
+	q->next = nullptr;
 	head_ = tail_ = nullptr;
+	end_= q;
 	size_ = 0;
 }
 
 template <typename T>
 void List<T>::push_back(const T& value) {
 	ListItem<T>* q = new ListItem<T>;
-	q -> item = value;
-	q -> next = nullptr;
+	q->item = value;
+	q->next = end_;
 	if (empty()) {
 		head_ = tail_ = q;
 	}
@@ -59,8 +62,8 @@ ListItem<T> List<T>::front(){
 
 template <typename T>
 ListItem<T> List<T>::back(){
-	ListItem<T> &tail = *tail_;
-	return tail;
+	ListItem<T> &end = *end_;
+	return end;
 }
 
 template class List<int>;
