@@ -25,8 +25,9 @@ public:
 	void write() const;
 	
 	bool empty() const {return head_ == nullptr;}
-	bool contains(T);
+	bool contains(T searched_item);
 	int size() const {return size_;}
+	ListItem<T> number(int number);
 	ListItem<T> front();
 	ListItem<T> back();
 

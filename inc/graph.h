@@ -4,28 +4,39 @@
 #include "list.h"
 #include "graph_elements.h"
 
-class GraphList{
+class Graph{
 public:
-	GraphList (int size);
-	void AddEdge(GraphVertice* vertice1, GraphVertice* vertice2, int weight);
-	void Write() const;
-	int IsConnected(GraphVertice* vertice1, GraphVertice* vertice2) const;
+	virtual ~Graph(){};	
+	virtual bool AddEdge(int vertice1, int vertice2, int weight) = 0;
+	virtual int IsConnected(GraphVertice& vertice1, GraphVertice& vertice2) const = 0;
+	virtual void Write() const = 0;
+	int size() const {return size_;}
+	GraphVertice* graph_vertices;
 
-private:
+protected:
 	int size_;
-	List<GraphVertice*> graph_vertice_list_;
 	List<GraphEdge*> graph_edge_list_;
 };
 
-class GraphArray{
+class GraphList: public Graph{
 public:
-	GraphArray(int size);
-	bool AddEdge(int vertice1, int vertice2, int weight);
-	void Write() const;
-	int IsConnected(int vertice1, int vertice2) const;
+	GraphList (int size);
+	virtual bool AddEdge(int vertice1, int vertice2, int weight);
+	virtual int IsConnected(GraphVertice& vertice1, GraphVertice& vertice2) const;
+	//virtual void Write() const;
 
 private:
-	int size_;
+	List<GraphEdge*> graph_edge_list_;
+};
+
+class GraphArray: public Graph{
+public:
+	GraphArray(int size);
+	virtual bool AddEdge(int vertice1, int vertice2, int weight);
+	virtual int IsConnected(GraphVertice& vertice1, GraphVertice& vertice2) const;
+	virtual void Write() const;
+
+private:
 	int** array_;
 };
 

@@ -11,9 +11,24 @@ void GraphVertice::Connect(GraphVertice* new_vertice, GraphEdge* new_edge){
 	incident_edges.push_back(new_edge);
 }
 
-int GraphVertice::IsConnected(GraphVertice* other_vertice){
-	if (incident_vertices.contains(other_vertice)){
-
+int GraphVertice::IsConnected(GraphVertice& other_vertice){
+	if (incident_vertices.contains(&other_vertice)){
+		
 	}
 	return 63;
+}
+
+GraphVertice::GraphVertice(){
+	number_ = 0;
+	distance_ = 10000;
+}
+
+bool operator < (const GraphVertice& v1, const GraphVertice& v2){
+	return v1.GetDistance() < v2.GetDistance();
+
+}
+
+bool operator >= (const GraphVertice& v1, const GraphVertice& v2){
+	return v1.GetDistance() >= v2.GetDistance();
+
 }

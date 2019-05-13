@@ -55,6 +55,16 @@ bool List<T>::contains(T searched_item){
 }
 
 template <typename T>
+ListItem<T> List<T>::number(int number){
+	ListItem<T>* temp = head_;
+	for (int i = 0; i < number; i++){
+		temp = temp->next;
+	}
+	ListItem<T> &ret = *temp;
+	return ret;
+}
+
+template <typename T>
 ListItem<T> List<T>::front(){
 	ListItem<T> &head = *head_;
 	return head;
