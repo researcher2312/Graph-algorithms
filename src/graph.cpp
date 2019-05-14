@@ -1,6 +1,7 @@
 #include "graph.h"
 
 #include <iostream>
+#include <random>
 
 using namespace std;
 
@@ -30,17 +31,16 @@ bool GraphArray::AddEdge(int vertice1, int vertice2, int weight){
 void GraphArray::Write() const{
 	for (int i = 0; i < size_; i++){
 		for (int j = 0; j < size_; j++){
-			cout << array_[i][j] << ' ';
+			cerr.width(4);
+			cerr << array_[i][j] << ' ';
 		}
-		cout << '\n';
+		cerr << '\n';
 	}
 }
 
 int GraphArray::IsConnected (GraphVertice& vertice1, GraphVertice& vertice2) const{
 	return array_[vertice1.GetNumber()][vertice2.GetNumber()];		
 }
-
-
 
 GraphList::GraphList(int size){
 	size_ = size;
@@ -62,8 +62,33 @@ bool GraphList::AddEdge(int vertice1, int vertice2, int weight){
 }
 
 int GraphList::IsConnected(GraphVertice& vertice1, GraphVertice& vertice2) const{
-	if(vertice1.IsConnected(vertice2)){
+	return vertice1.IsConnected(vertice2);
+}
 
+Graph* GenerateGraph(int size, int fill, GraphType graph_type){
+	Graph* result;
+	random_device r;
+	default_random_engine generator(r());
+ 	uniform_int_distribution<int> distribution(0, 9999);
+	if (graph_type == array_graph) {
+		result = new GraphArray (size);
 	}
-	return 32;
+	else if (graph_type == list_graph) {
+		result = new GraphList (size);
+	}
+	int edge_count = size*(size-1)*fill/200;
+	for (int i = 0; i < size-1; i++) {
+		result->AddEdge(i, i+1, distribution(generator));
+		--edge_count;
+	}
+	for (int i = size-1; i >= size*(100-fill)/100; i--) {
+		for (int j = 0; j < size*fill/100; j++) {
+			if (i != j && i+1 != j && i != j+1){
+				if (edge_count > 0)
+				result->AddEdge(i, j, distribution(generator));
+				--edge_count;
+			}
+		}
+	}
+	return result;
 }

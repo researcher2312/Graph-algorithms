@@ -28,8 +28,8 @@ public:
 	bool contains(T searched_item);
 	int size() const {return size_;}
 	ListItem<T> number(int number);
-	ListItem<T> front();
-	ListItem<T> back();
+	ListItem<T>& front();
+	ListItem<T>& back();
 
 private:
 	int size_;

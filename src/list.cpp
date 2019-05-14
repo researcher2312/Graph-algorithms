@@ -65,15 +65,13 @@ ListItem<T> List<T>::number(int number){
 }
 
 template <typename T>
-ListItem<T> List<T>::front(){
-	ListItem<T> &head = *head_;
-	return head;
+ListItem<T>& List<T>::front(){
+	return *head_;
 }
 
 template <typename T>
-ListItem<T> List<T>::back(){
-	ListItem<T> &end = *end_;
-	return end;
+ListItem<T>& List<T>::back(){
+	return *end_;
 }
 
 template class List<int>;

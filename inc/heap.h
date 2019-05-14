@@ -5,20 +5,20 @@ template <typename T>
 class Heap {
 public:
 	Heap(int maxsize);
-	T pop();
-	void push(const T&);
+	T* pop();
+	void push(T*);
 	void MakeOrder();
 	bool Empty()const{return size_ == 0;}
 	int Size()const{return size_;}
 
 private:
-	T* heap_;
+	T** heap_;
 	int maxsize_;
 	int offset_=0;
 	int size_ = 0;
-	void HeapDown(T* tab, int node, int size);
-	void Heapsort(T* tab, int size);
-	void Swap(T* tab, int a, int b);
+	void HeapDown(T** tab, int node, int size);
+	void Heapsort(T** tab, int size);
+	void Swap(T** tab, int a, int b);
 };
 
 #endif

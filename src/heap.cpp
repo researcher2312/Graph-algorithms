@@ -4,14 +4,16 @@
 
 template <typename T>
 Heap<T>::Heap(int maxsize): maxsize_(maxsize) {
-  heap_ = new T[maxsize_];
+  heap_ = new T*[maxsize_];
 }
 
 template <typename T>
-void Heap<T>::push(const T& new_item){
-  if (size_ < maxsize_);
-  heap_[size_] = new_item;
-  ++size_;
+void Heap<T>::push(T* new_item){
+  if (size_ <= maxsize_){
+    heap_[size_+offset_] = new_item;
+    ++size_;
+  }
+  
 }
 
 template <typename T>
@@ -21,26 +23,20 @@ void Heap<T>::MakeOrder(){
 
 
 template <typename T>
-T Heap<T>::pop(){
-  if(size_ > 0){
-    T temp = heap_[offset_];
-    offset_++;
-    size_ --;
-    Heapsort(heap_ + offset_, size_);
-    return temp;   
-  }
-  else
-    return 0;
+T* Heap<T>::pop(){
+  offset_++;
+  size_ --;
+  return heap_[offset_-1];
 }
 
 template <typename T>
-void Heap<T>::HeapDown (T *tab, int node, int size){
-  T nodeValue = tab[node-1];
+void Heap<T>::HeapDown (T** tab, int node, int size){
+  T* nodeValue = tab[node-1];
   while(node <= size/2){
     int nextNode = 2*node;
     if(nextNode < size && tab[nextNode-1] < tab[nextNode])
       nextNode++;
-    if(nodeValue >= tab[nextNode-1])
+    if(*nodeValue >= *tab[nextNode-1])
       break;
     tab[node-1]=tab[nextNode-1];
     node=nextNode;
@@ -50,7 +46,7 @@ void Heap<T>::HeapDown (T *tab, int node, int size){
 
 /*Heap sort used in Introspective sort*/
 template <typename T>
-void Heap<T>::Heapsort(T* tab, int size){
+void Heap<T>::Heapsort(T** tab, int size){
   for(int i=size/2; i>0; i--)
     HeapDown(tab, i, size);
   while(size > 1){
@@ -61,10 +57,9 @@ void Heap<T>::Heapsort(T* tab, int size){
 }
 
 template <typename T>
-void Heap<T>::Swap(T* tab, int a, int b){
-  T temp = tab[a];
+void Heap<T>::Swap(T** tab, int a, int b){
+  T* temp = tab[a];
   tab[a] = tab[b];
   tab[b] = temp;
 }
-template class Heap<int>;
 template class Heap<GraphVertice>;

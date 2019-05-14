@@ -4,6 +4,11 @@
 #include "list.h"
 #include "graph_elements.h"
 
+enum GraphType{
+	array_graph,
+	list_graph,
+};
+
 class Graph{
 public:
 	virtual ~Graph(){};	
@@ -23,7 +28,7 @@ public:
 	GraphList (int size);
 	virtual bool AddEdge(int vertice1, int vertice2, int weight);
 	virtual int IsConnected(GraphVertice& vertice1, GraphVertice& vertice2) const;
-	//virtual void Write() const;
+	virtual void Write() const {};
 
 private:
 	List<GraphEdge*> graph_edge_list_;
@@ -39,6 +44,8 @@ public:
 private:
 	int** array_;
 };
+
+Graph* GenerateGraph(int size, int fill, GraphType graph_type);
 
 #define GRAPH_H
 #endif

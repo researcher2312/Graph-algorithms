@@ -10,10 +10,12 @@ class GraphEdge;
 class GraphEdge{
 public:
 	GraphEdge(GraphVertice* v1, GraphVertice* v2, int weight);
+	bool Connects(GraphVertice* v1, GraphVertice* v2) const;
+	int GetWeight() const {return weight_;}
 
 private:
 	int weight_;
-	GraphVertice* incident_vertices [2];
+	int incident_vertice_numbers [2];
 };
 
 class GraphVertice{
